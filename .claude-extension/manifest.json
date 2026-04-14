@@ -1,0 +1,16 @@
+{
+  "name": "MEOK Governance Engine",
+  "version": "1.0.0",
+  "description": "62 AI governance tools. 10 frameworks. 12 crosswalks. EU AI Act + NIST + ISO 42001 + GDPR + SOC 2.",
+  "author": "MEOK AI Labs",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/meok-governance-engine-mcp",
+  "license": "MIT",
+  "mcp": {
+    "command": "python",
+    "args": ["server.py"],
+    "transport": "stdio"
+  },
+  "categories": ["compliance", "governance", "security"],
+  "icon": "shield"
+}
