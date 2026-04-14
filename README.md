@@ -1,43 +1,106 @@
 # MEOK Governance Engine MCP
 
-> **By [MEOK AI Labs](https://meok.ai)** — 62 compliance tools. 10 frameworks. 12 crosswalks. One MCP.
+**62 AI governance tools in one MCP server.** The most comprehensive compliance MCP in existence.
 
-The world's most comprehensive AI governance compliance server.
+## Why This MCP Exists
 
-## 62 Tools Across 10 Frameworks
+Every organization needs AI governance. Most are struggling with:
+- Multiple frameworks (EU AI Act, NIST, ISO 42001, GDPR, SOC 2)
+- Complex crosswalk mappings between frameworks
+- Expensive consultants for compliance audits
+- No way to verify AI system compliance in real-time
 
-- **EU AI Act** — Risk classification, 42-point audit, penalties, documentation
-- **NIST AI RMF** — Risk profile, impact mapping, trustworthy characteristics
-- **ISO 42001** — Management system audit, Annex A controls, certification checklist
-- **ISO 27001** — ISMS audit, 93 Annex A controls, Statement of Applicability
-- **GDPR** — Processing classification, DPIA, breach notification, rights handling
-- **SOC 2** — Trust principles, control matrix, readiness assessment
-- **Canada AIDA** — System classification, impact assessment, compliance check
-- **CSOAI Crosswalk** — 12 frameworks mapped through 52 CSOAI articles
-- **LLM Comparison** — Compare Claude/GPT-4/Gemini/Llama/Mistral compliance
-- **AI Self-Audit** — Agents check their OWN compliance in real-time
+**MEOK solves all of this.**
 
-## Killer Features
+## Features
 
-| Tool | What It Does |
+### Framework Compliance (20+ tools)
+- ✅ **EU AI Act** — Risk classification, prohibited practices, high-risk requirements
+- ✅ **NIST AI RMF** — GOVERN, MAP, MEASURE, MANAGE functions
+- ✅ **ISO 42001** — AI management system certification
+- ✅ **GDPR** — Data protection, subject rights, DPO requirements
+- ✅ **SOC 2** — Security, availability, confidentiality
+- ✅ **ISO 27001** — Information security
+
+### Crosswalk Mapping (12 tools)
+- Map between ANY two frameworks via CSOAI
+- Find compliance gaps across frameworks
+- Generate unified crosswalk reports
+
+### Self-Audit (10 tools)
+- Real-time compliance scoring
+- Automated audit report generation
+- Timestamp compliance certificates
+- Full audit trail with evidence
+
+### Governance (12 tools)
+- Framework applicability by industry/jurisdiction
+- Cost estimation across frameworks
+- Penalty risk assessment
+
+## Tools
+
+| Tool | Description |
 |------|-------------|
-| `full_governance_report` | Complete multi-framework assessment in ONE call |
-| `which_frameworks_apply` | Input country + industry → get all applicable frameworks |
-| `compliance_cost_estimator` | Compare: DIY vs consulting vs MEOK (saves 80%+) |
-| `crosswalk_bridge` | Map between ANY two frameworks through CSOAI |
-| `self_audit` | AI agents audit their own compliance in real-time |
+| `full_governance_report` | Comprehensive report for your organization |
+| `which_frameworks_apply` | Determine applicable frameworks |
+| `compliance_cost_estimator` | Annual compliance cost projection |
+| `compliance_score_engine` | Real-time scoring for AI systems |
+| `check_compliance` | Framework-specific compliance check |
+| `generate_documentation` | Auto-generate compliance docs |
+| `assess_penalties` | Calculate potential regulatory penalties |
+| `get_timeline` | Regulatory deadline tracker |
+| `audit_report` | Formal audit report generator |
+| `bridge_frameworks` | Map between two specific frameworks |
+| `find_gaps` | Identify missing controls |
+| `get_unified_crosswalk` | All 12 frameworks mapped together |
 
-## Pricing
+## Quick Start
 
-| Tier | Price | Access |
-|------|-------|--------|
-| Free | £0 | 5 calls/day — try before you buy |
-| Pro | £299/mo | Single framework unlimited |
-| Business | £999/mo | All 10 frameworks unlimited |
-| Enterprise | £2,500/mo | Custom frameworks + SLA |
-| Assessment | £15,000 | One-time full governance audit |
+```bash
+pip install meok-governance-engine-mcp
+python -m meok_governance_engine_mcp
+```
 
-**Anchored to reality:** Enterprises pay €52K/year per high-risk AI system. Our full suite costs £12K/year. You save £40K+.
+## Example Usage
 
----
-**MEOK AI Labs** | [meok.ai](https://meok.ai) | nicholas@meok.ai | "Protection Through Care, Not Command"
+```python
+# Check which frameworks apply
+result = which_frameworks_apply(
+    industry="healthcare",
+    jurisdiction="eu",
+    company_size="enterprise"
+)
+
+# Calculate compliance score
+result = compliance_score_engine(
+    system_description="AI-powered diagnostic tool for radiology",
+    frameworks="eu_ai_act,nist,iso_42001"
+)
+
+# Generate audit report
+result = audit_report(
+    organization_name="MedTech Corp",
+    frameworks=["eu_ai_act", "gdpr"]
+)
+```
+
+## Competition
+
+| Feature | MEOK | Competitors |
+|---------|------|-------------|
+| Framework count | 12+ | 1-3 |
+| Crosswalk mapping | ✅ | ❌ |
+| Self-audit | ✅ | ❌ |
+| Real-time scoring | ✅ | ❌ |
+| Price | £999/mo | £2k-10k/mo |
+
+## Contact
+
+- **Website**: https://meok.ai
+- **Email**: nick@meok.ai
+- **Documentation**: https://meok.ai/docs
+
+## License
+
+MIT - MEOK AI Labs

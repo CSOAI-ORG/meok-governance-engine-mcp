@@ -16,6 +16,11 @@ By MEOK AI Labs | meok.ai | csoai.org
 "Protection Through Care, Not Command"
 """
 
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import json
 import os
 import sys
@@ -76,13 +81,17 @@ def full_governance_report(
     system_description: str,
     jurisdictions: str = "eu,us,uk",
     use_case: str = "",
-) -> str:
+api_key: str = "") -> str:
     """Generate a COMPLETE multi-framework governance report in one call.
     
     Runs EU AI Act risk classification, NIST risk profile, ISO 42001 audit,
     GDPR assessment, and crosswalk analysis — all at once. The enterprise
     single-call solution.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if err := _check_rate_limit(): return err
     
     desc = system_description.lower()
@@ -122,7 +131,7 @@ def full_governance_report(
     if "ca" in jurisdictions: frameworks.append("Canada AIDA")
     frameworks.extend(["ISO 42001", "ISO 27001"])  # Always applicable
     
-    return json.dumps({
+    return {
         "report_id": f"MEOK-RPT-{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}",
         "system_name": system_name,
         "generated": datetime.now(timezone.utc).isoformat(),
@@ -147,7 +156,7 @@ def full_governance_report(
         "crosswalk_note": f"Use crosswalk_bridge to map between any of your {len(frameworks)} applicable frameworks.",
         "recommendation": f"{'Address gaps in: ' + ', '.join(k for k,v in checks.items() if not v) if overall_score < 100 else 'All checks pass. Consider formal conformity assessment.'}",
         "enterprise": "Full assessment with 59 tools: meok.ai/enterprise",
-    }, indent=2)
+    }
 
 
 @mcp.tool()
@@ -155,12 +164,16 @@ def which_frameworks_apply(
     country: str,
     industry: str = "",
     ai_use_case: str = "",
-) -> str:
+api_key: str = "") -> str:
     """Instantly determine which AI governance frameworks apply to your situation.
     
     Input your country, industry, and AI use case. Get back every applicable
     framework with enforcement status and deadlines.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if err := _check_rate_limit(): return err
     
     country = country.lower()
@@ -206,7 +219,7 @@ def which_frameworks_apply(
         frameworks.append({"name": "NATO AI Principles", "type": "principles", "status": "active"})
         frameworks.append({"name": "DoD AI Ethics", "type": "policy", "status": "active"})
     
-    return json.dumps({
+    return {
         "country": country,
         "industry": industry,
         "ai_use_case": ai_use_case,
@@ -214,7 +227,7 @@ def which_frameworks_apply(
         "total": len(frameworks),
         "binding_count": sum(1 for f in frameworks if f["type"] in ("regulation", "law", "legislation")),
         "crosswalk_available": "Use crosswalk_bridge to map between any two frameworks.",
-    }, indent=2)
+    }
 
 
 @mcp.tool()
@@ -222,11 +235,15 @@ def compliance_cost_estimator(
     systems_count: int = 1,
     risk_level: str = "high",
     current_certifications: str = "",
-) -> str:
+api_key: str = "") -> str:
     """Estimate compliance costs and show how MEOK Governance Engine saves money.
     
     Compares: doing it yourself vs consulting firm vs MEOK automated tools.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if err := _check_rate_limit(): return err
     
     # Per-system costs from intelligence briefing
@@ -250,7 +267,7 @@ def compliance_cost_estimator(
         diy_total *= (1 - iso_discount)
         consulting_total *= (1 - iso_discount)
     
-    return json.dumps({
+    return {
         "systems": systems_count,
         "risk_level": risk_level,
         "has_iso_27001": has_27001,
@@ -263,7 +280,7 @@ def compliance_cost_estimator(
         "savings_vs_consulting": f"EUR {round(consulting_total - meok_total):,}",
         "savings_percentage": f"{round((1 - meok_total/diy_total) * 100)}% cheaper than DIY",
         "recommendation": "MEOK Governance Engine provides 80% of compliance work at 10% of the cost. Remaining 20% requires human review for formal conformity assessment.",
-    }, indent=2)
+    }
 
 
 # ══════════════════════════════════════════════════════════════════════
@@ -277,8 +294,12 @@ def compliance_cost_estimator(
 # Customers wanting individual framework tools can use the standalone MCPs.
 
 @mcp.tool()
-def list_all_tools() -> str:
+def list_all_tools(api_key: str = "") -> str:
     """List all 62 governance tools available in this engine."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     tools = {
         "META (unique to engine)": [
             "full_governance_report — Complete multi-framework assessment in one call",
@@ -330,7 +351,7 @@ def list_all_tools() -> str:
     }
     
     total = sum(len(v) for v in tools.values())
-    return json.dumps({
+    return {
         "engine": "MEOK Governance Engine",
         "version": "1.0.0",
         "total_tools": "62 (59 framework + 3 meta)",
@@ -344,14 +365,18 @@ def list_all_tools() -> str:
             "enterprise": "GBP 2,500/month (custom + SLA)",
             "assessment": "GBP 15,000 one-time (full governance audit)",
         },
-    }, indent=2)
+    }
 
 
 
 
 @mcp.tool()
-def compliance_score_engine(system_description: str, frameworks: str = "eu_ai_act,nist,iso_42001") -> str:
+def compliance_score_engine(system_description: str, frameworks: str = "eu_ai_act,nist,iso_42001", api_key: str = "") -> str:
     """Calculate compliance percentage per framework. Input system description, get scored breakdown."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if err := _check_rate_limit(): return err
     desc = system_description.lower()
     fw_list = [f.strip() for f in frameworks.split(',')]
@@ -389,16 +414,21 @@ def compliance_score_engine(system_description: str, frameworks: str = "eu_ai_ac
         fw_total = len(fw_checks)
         fw_scores[fw] = {'score': round(fw_passed / fw_total * 100, 1), 'passed': fw_passed, 'total': fw_total}
     
-    return json.dumps({'overall_score': overall, 'framework_scores': fw_scores, 'checks': checks, 'recommendation': 'Address: ' + ', '.join(k for k, v in checks.items() if not v)}, indent=2)
+    return {'overall_score': overall, 'framework_scores': fw_scores, 'checks': checks, 'recommendation': 'Address: ' + ', '.join(k for k, v in checks.items() if not v)}
 
 
 
 _full_audit = []
 
 @mcp.tool()
-def get_full_audit_trail(limit: int = 50) -> str:
+def get_full_audit_trail(limit: int = 50, api_key: str = "") -> str:
     """Get timestamped audit trail of all governance checks performed."""
-    return json.dumps({'total': len(_full_audit), 'entries': _full_audit[-limit:], 'note': 'Enterprise: full trail with cryptographic signing'}, indent=2)
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
+    return {'total': len(_full_audit), 'entries': _full_audit[-limit:], 'note': 'Enterprise: full trail with cryptographic signing'}
+    return {'total': len(_full_audit), 'entries': _full_audit[-limit:], 'note': 'Enterprise: full trail with cryptographic signing'}
 
 if __name__ == "__main__":
     mcp.run()
