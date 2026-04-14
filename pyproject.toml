@@ -1,14 +1,27 @@
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
 [project]
 name = "meok-governance-engine-mcp"
 version = "1.0.0"
-description = "MEOK AI Labs — meok-governance-engine-mcp MCP Server"
+description = "62 AI governance tools. 10 frameworks. 12 crosswalks. The most comprehensive compliance MCP."
+readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
 authors = [{name = "MEOK AI Labs", email = "nicholas@meok.ai"}]
+keywords = ["mcp", "ai-governance", "eu-ai-act", "nist", "iso-42001", "compliance", "meok"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 dependencies = ["mcp>=1.0.0"]
+
 [project.urls]
 Homepage = "https://meok.ai"
 Repository = "https://github.com/CSOAI-ORG/meok-governance-engine-mcp"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+only-include = ["server.py", "auth_middleware.py"]
