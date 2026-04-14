@@ -22,6 +22,13 @@ import sys
 from datetime import datetime, timezone
 from mcp.server.fastmcp import FastMCP
 
+# Tier authentication (connects to Stripe subscriptions)
+try:
+    from auth_middleware import get_tier_from_api_key, Tier, TIER_LIMITS
+    AUTH_AVAILABLE = True
+except ImportError:
+    AUTH_AVAILABLE = False  # Runs without auth in dev mode
+
 # ── Rate Limiting & Auth ──
 from collections import defaultdict
 FREE_DAILY_LIMIT = 5  # Low free tier — this is enterprise product
