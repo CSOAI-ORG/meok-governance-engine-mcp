@@ -347,5 +347,49 @@ def list_all_tools() -> str:
     }, indent=2)
 
 
+
+
+@mcp.tool()
+def compliance_score_engine(system_description: str, frameworks: str = "eu_ai_act,nist,iso_42001") -> str:
+    """Calculate compliance percentage per framework. Input system description, get scored breakdown."""
+    if err := _check_rate_limit(): return err
+    desc = system_description.lower()
+    fw_list = [f.strip() for f in frameworks.split(',')]
+    
+    checks = {
+        'risk_management': any(w in desc for w in ['risk', 'assessment', 'mitigation']),
+        'data_governance': any(w in desc for w in ['data', 'governance', 'quality', 'bias']),
+        'documentation': any(w in desc for w in ['document', 'specification', 'technical']),
+        'logging': any(w in desc for w in ['log', 'audit', 'trace', 'record']),
+        'transparency': any(w in desc for w in ['transparent', 'explainable', 'interpretable']),
+        'human_oversight': any(w in desc for w in ['human', 'oversight', 'intervention']),
+        'accuracy': any(w in desc for w in ['accuracy', 'robust', 'security', 'test']),
+        'privacy': any(w in desc for w in ['privacy', 'gdpr', 'consent', 'data protection']),
+    }
+    
+    passed = sum(checks.values())
+    total = len(checks)
+    overall = round(passed / total * 100, 1)
+    
+    fw_scores = {}
+    for fw in fw_list:
+        # Each framework weights checks differently
+        if fw == 'eu_ai_act':
+            fw_checks = {k: v for k, v in checks.items()}
+        elif fw == 'nist':
+            fw_checks = {k: v for k, v in checks.items() if k != 'privacy'}
+        elif fw == 'iso_42001':
+            fw_checks = {k: v for k, v in checks.items() if k != 'accuracy'}
+        elif fw == 'gdpr':
+            fw_checks = {'data_governance': checks['data_governance'], 'privacy': checks['privacy'], 'transparency': checks['transparency'], 'logging': checks['logging']}
+        else:
+            fw_checks = checks
+        
+        fw_passed = sum(fw_checks.values())
+        fw_total = len(fw_checks)
+        fw_scores[fw] = {'score': round(fw_passed / fw_total * 100, 1), 'passed': fw_passed, 'total': fw_total}
+    
+    return json.dumps({'overall_score': overall, 'framework_scores': fw_scores, 'checks': checks, 'recommendation': 'Address: ' + ', '.join(k for k, v in checks.items() if not v)}, indent=2)
+
 if __name__ == "__main__":
     mcp.run()
