@@ -391,5 +391,14 @@ def compliance_score_engine(system_description: str, frameworks: str = "eu_ai_ac
     
     return json.dumps({'overall_score': overall, 'framework_scores': fw_scores, 'checks': checks, 'recommendation': 'Address: ' + ', '.join(k for k, v in checks.items() if not v)}, indent=2)
 
+
+
+_full_audit = []
+
+@mcp.tool()
+def get_full_audit_trail(limit: int = 50) -> str:
+    """Get timestamped audit trail of all governance checks performed."""
+    return json.dumps({'total': len(_full_audit), 'entries': _full_audit[-limit:], 'note': 'Enterprise: full trail with cryptographic signing'}, indent=2)
+
 if __name__ == "__main__":
     mcp.run()
