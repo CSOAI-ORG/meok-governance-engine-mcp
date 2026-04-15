@@ -1,0 +1,62 @@
+{
+  "name": "meok-governance-engine",
+  "description": "MEOK Governance Engine \u2014 59 compliance tools in one MCP server.\n    \n    FRAMEWORKS: EU AI Act, NIST AI RMF, ISO 42001, ISO 27001, GDPR, SOC 2, Canada AIDA, \n    CSOAI (12 crosswalks), LLM Comparison, AI Self-Audit.\n    \n    KILLER FEATURES:\n    - crosswalk_bridge: Map between ANY two frameworks through CSOAI\n    - self_audit: AI agents check their OWN compliance in real-time\n    - compare_providers: Which LLM is most compliant for your use case?\n    - full_governance_report: Complete multi-framework assessment in one call\n    \n    By MEOK AI Labs | meok.ai | Enterprise: \u00a3999/mo",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/meok-governance-engine-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "full_governance_report",
+      "description": "Generate a COMPLETE multi-framework governance report in one call."
+    },
+    {
+      "name": "which_frameworks_apply",
+      "description": "Instantly determine which AI governance frameworks apply to your situation."
+    },
+    {
+      "name": "compliance_cost_estimator",
+      "description": "Estimate compliance costs and show how MEOK Governance Engine saves money."
+    },
+    {
+      "name": "list_all_tools",
+      "description": "List all 62 governance tools available in this engine."
+    },
+    {
+      "name": "compliance_score_engine",
+      "description": "Calculate compliance percentage per framework. Input system description, get scored breakdown."
+    },
+    {
+      "name": "get_full_audit_trail",
+      "description": "Get timestamped audit trail of all governance checks performed."
+    }
+  ],
+  "categories": [
+    "AI & Machine Learning",
+    "Agent Infrastructure",
+    "Productivity"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
