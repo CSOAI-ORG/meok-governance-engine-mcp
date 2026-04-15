@@ -25,3 +25,6 @@ Repository = "https://github.com/CSOAI-ORG/meok-governance-engine-mcp"
 [tool.hatch.build.targets.wheel]
 packages = ["."]
 only-include = ["server.py", "auth_middleware.py"]
+
+[project.scripts]
+meok_governance_engine_mcp = "server:main"
