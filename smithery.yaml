@@ -1,6 +1,5 @@
 name: meok-governance-engine-mcp
-description: '**62 AI governance tools in one MCP server.** The most comprehensive
-  compliance MCP in existence.'
+description: MEOK AI Labs MCP Server
 version: 1.0.0
 tools:
 - name: full_governance_report
