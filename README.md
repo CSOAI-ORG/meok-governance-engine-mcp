@@ -93,7 +93,19 @@ result = audit_report(
 | Crosswalk mapping | ✅ | ❌ |
 | Self-audit | ✅ | ❌ |
 | Real-time scoring | ✅ | ❌ |
-| Price | £999/mo | £2k-10k/mo |
+| Price | Free tier | £2k-10k/mo |
+| **MCP ecosystem** | **207 packages** | **None** |
+
+## Part of MEOK MCP Ecosystem
+
+This is **1 of 207 MCP servers** by MEOK AI Labs — the world's largest AI governance MCP portfolio:
+- `csoai-governance-crosswalk-mcp` — 12 framework crosswalk (2775 lines, ZERO competitors)
+- `ai-self-audit-mcp` — Real-time compliance certificates
+- `security-scanner-ai-mcp` — OWASP + SOC2 mapping
+- `blockchain-verification-mcp` — Immutable audit trails
+- +199 more in the ecosystem
+
+Browse all: [meok.ai](https://meok.ai)
 
 ## Contact
 

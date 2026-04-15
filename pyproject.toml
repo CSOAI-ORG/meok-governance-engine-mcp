@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "meok-governance-engine-mcp"
 version = "1.0.0"
-description = "62 AI governance tools. 10 frameworks. 12 crosswalks. The most comprehensive compliance MCP."
+description = "AI-powered meok governance engine MCP server for agents. Supports full governance report, which frameworks apply, compliance cost estimator. By MEOK AI Labs."
 readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">=3.10"

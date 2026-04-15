@@ -1,6 +1,6 @@
 {
   "name": "meok-governance-engine-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
+  "description": "AI-powered meok governance engine MCP server for agents. Supports full governance report, which frameworks apply, compliance cost estimator. By MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {
