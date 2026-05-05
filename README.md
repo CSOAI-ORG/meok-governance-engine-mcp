@@ -1,118 +1,38 @@
-# MEOK Governance Engine MCP
+<div align="center">
 
-**62 AI governance tools in one MCP server.** The most comprehensive compliance MCP in existence.
+[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/meok-governance-engine-mcp)](https://github.com/CSOAI-ORG/meok-governance-engine-mcp/stargazers)
 
-## Why This MCP Exists
+# umeokU governanceU engineU mcp
 
-Every organization needs AI governance. Most are struggling with:
-- Multiple frameworks (EU AI Act, NIST, ISO 42001, GDPR, SOC 2)
-- Complex crosswalk mappings between frameworks
-- Expensive consultants for compliance audits
-- No way to verify AI system compliance in real-time
+****62 AI governance tools in one MCP server.** The most comprehensive compliance MCP in existence.**
 
-**MEOK solves all of this.**
+[![npm version](https://img.shields.io/npm/v/@meok-ai/meok-governance-engine-mcp)](https://www.npmjs.com/package/@meok-ai/meok-governance-engine-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
 
-## Features
+[Installation](#installation) · [Docs](https://csoai.org) · [Report Bug](https://github.com/CSOAI-ORG/meok-governance-engine-mcp/issues)
 
-### Framework Compliance (20+ tools)
-- ✅ **EU AI Act** — Risk classification, prohibited practices, high-risk requirements
-- ✅ **NIST AI RMF** — GOVERN, MAP, MEASURE, MANAGE functions
-- ✅ **ISO 42001** — AI management system certification
-- ✅ **GDPR** — Data protection, subject rights, DPO requirements
-- ✅ **SOC 2** — Security, availability, confidentiality
-- ✅ **ISO 27001** — Information security
+</div>
 
-### Crosswalk Mapping (12 tools)
-- Map between ANY two frameworks via CSOAI
-- Find compliance gaps across frameworks
-- Generate unified crosswalk reports
+---
 
-### Self-Audit (10 tools)
-- Real-time compliance scoring
-- Automated audit report generation
-- Timestamp compliance certificates
-- Full audit trail with evidence
-
-### Governance (12 tools)
-- Framework applicability by industry/jurisdiction
-- Cost estimation across frameworks
-- Penalty risk assessment
-
-## Tools
-
-| Tool | Description |
-|------|-------------|
-| `full_governance_report` | Comprehensive report for your organization |
-| `which_frameworks_apply` | Determine applicable frameworks |
-| `compliance_cost_estimator` | Annual compliance cost projection |
-| `compliance_score_engine` | Real-time scoring for AI systems |
-| `check_compliance` | Framework-specific compliance check |
-| `generate_documentation` | Auto-generate compliance docs |
-| `assess_penalties` | Calculate potential regulatory penalties |
-| `get_timeline` | Regulatory deadline tracker |
-| `audit_report` | Formal audit report generator |
-| `bridge_frameworks` | Map between two specific frameworks |
-| `find_gaps` | Identify missing controls |
-| `get_unified_crosswalk` | All 12 frameworks mapped together |
-
-## Quick Start
+## Installation
 
 ```bash
 pip install meok-governance-engine-mcp
-python -m meok_governance_engine_mcp
+# or
+npm install -g @meok-ai/meok-governance-engine-mcp
 ```
 
-## Example Usage
+## Quick Start
 
-```python
-# Check which frameworks apply
-result = which_frameworks_apply(
-    industry="healthcare",
-    jurisdiction="eu",
-    company_size="enterprise"
-)
+See the project repository for full documentation and examples.
 
-# Calculate compliance score
-result = compliance_score_engine(
-    system_description="AI-powered diagnostic tool for radiology",
-    frameworks="eu_ai_act,nist,iso_42001"
-)
+## Enterprise Support
 
-# Generate audit report
-result = audit_report(
-    organization_name="MedTech Corp",
-    frameworks=["eu_ai_act", "gdpr"]
-)
-```
-
-## Competition
-
-| Feature | MEOK | Competitors |
-|---------|------|-------------|
-| Framework count | 12+ | 1-3 |
-| Crosswalk mapping | ✅ | ❌ |
-| Self-audit | ✅ | ❌ |
-| Real-time scoring | ✅ | ❌ |
-| Price | Free tier | £2k-10k/mo |
-| **MCP ecosystem** | **207 packages** | **None** |
-
-## Part of MEOK MCP Ecosystem
-
-This is **1 of 207 MCP servers** by MEOK AI Labs — the world's largest AI governance MCP portfolio:
-- `csoai-governance-crosswalk-mcp` — 12 framework crosswalk (2775 lines, ZERO competitors)
-- `ai-self-audit-mcp` — Real-time compliance certificates
-- `security-scanner-ai-mcp` — OWASP + SOC2 mapping
-- `blockchain-verification-mcp` — Immutable audit trails
-- +199 more in the ecosystem
-
-Browse all: [meok.ai](https://meok.ai)
-
-## Contact
-
-- **Website**: https://meok.ai
-- **Email**: nick@meok.ai
-- **Documentation**: https://meok.ai/docs
+- 📧 nicholas@csoai.org
+- 🌐 [CSOAI.org](https://csoai.org)
 
 ## License
 
-MIT - MEOK AI Labs
+MIT © [CSOAI](https://csoai.org)
