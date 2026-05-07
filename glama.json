@@ -1,10 +1,4 @@
 {
-  "name": "meok-governance-engine-mcp",
-  "description": "MEOK AI Labs \u2014 meok-governance-engine-mcp",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/meok-governance-engine-mcp",
-  "license": "MIT",
-  "runtime": "python",
-  "entryPoint": "mcp-wrapper.py"
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "maintainers": ["CSOAI-ORG"]
 }
