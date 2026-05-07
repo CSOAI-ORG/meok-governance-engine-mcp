@@ -1,3 +1,5 @@
+[![meok-governance-engine-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/meok-governance-engine-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/meok-governance-engine-mcp)
+
 <div align="center">
 
 [![PyPI](https://img.shields.io/pypi/v/meok-governance-engine-mcp)](https://pypi.org/project/meok-governance-engine-mcp/)
