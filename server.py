@@ -102,6 +102,16 @@ api_key: str = "") -> str:
     When NOT to use:
         Do not use as a substitute for qualified legal counsel. This tool
         provides technical compliance guidance, not legal advice.
+
+    Args:
+        system_name (str): The system name to analyze or process.
+        system_description (str): The system description to analyze or process.
+        jurisdictions (str): The jurisdictions to analyze or process.
+        us: The us to analyze or process.
+        uk": The uk" to analyze or process.
+        use_case (str): The use case to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -214,6 +224,13 @@ api_key: str = "") -> str:
     When NOT to use:
         Do not use as a substitute for qualified legal counsel. This tool
         provides technical compliance guidance, not legal advice.
+
+    Args:
+        country (str): The country to analyze or process.
+        industry (str): The industry to analyze or process.
+        ai_use_case (str): The ai use case to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -314,6 +331,13 @@ api_key: str = "") -> str:
     When NOT to use:
         Do not use as a substitute for qualified legal counsel. This tool
         provides technical compliance guidance, not legal advice.
+
+    Args:
+        systems_count (int): The systems count to analyze or process.
+        risk_level (str): The risk level to analyze or process.
+        current_certifications (str): The current certifications to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -401,6 +425,10 @@ def list_all_tools(api_key: str = "") -> str:
     When NOT to use:
         Do not use as a substitute for qualified legal counsel. This tool
         provides technical compliance guidance, not legal advice.
+
+    Args:
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -509,6 +537,14 @@ def compliance_score_engine(system_description: str, frameworks: str = "eu_ai_ac
     When NOT to use:
         Do not use as a substitute for qualified legal counsel. This tool
         provides technical compliance guidance, not legal advice.
+
+    Args:
+        system_description (str): The system description to analyze or process.
+        frameworks (str): The frameworks to analyze or process.
+        nist: The nist to analyze or process.
+        iso_42001": The iso 42001" to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -590,6 +626,11 @@ def get_full_audit_trail(limit: int = 50, api_key: str = "") -> str:
     When NOT to use:
         Do not use as a substitute for qualified legal counsel. This tool
         provides technical compliance guidance, not legal advice.
+
+    Args:
+        limit (int): The limit to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
