@@ -27,7 +27,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install --user mcp==0.9.0 pydantic httpx || echo "MCP installation failed, trying alternative approach"
+          pip install --user mcp>=1.0.0 pydantic httpx || echo "MCP installation failed, trying alternative approach"
           # Alternative: install from source if needed
           if ! python -c "import mcp" 2>/dev/null; then
             echo "Installing MCP from source..."
