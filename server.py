@@ -19,7 +19,19 @@ By MEOK AI Labs | meok.ai | csoai.org
 
 import sys, os
 sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
-from auth_middleware import check_access
+try:
+    sys.path.insert(0, os.path.expanduser("~/clawd/meok-labs-engine/shared"))
+    from auth_middleware import check_access as _shared_check_access
+except ImportError:
+    def _shared_check_access(api_key: str = ""):
+        """Fallback when shared auth engine is not available."""
+        if _MEOK_API_KEY and api_key and api_key == _MEOK_API_KEY:
+            return True, "OK", "pro"
+        if _MEOK_API_KEY and api_key and api_key != _MEOK_API_KEY:
+            return False, "Invalid API key.", "free"
+        return True, "OK", "free"
+
+
 
 import json
 import os
@@ -129,7 +141,7 @@ api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://buy.stripe.com/28EcN7fsM002fUN1Uc8k835"}
 
     if err := _check_rate_limit(): return err
     
@@ -248,7 +260,7 @@ api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://buy.stripe.com/28EcN7fsM002fUN1Uc8k835"}
 
     if err := _check_rate_limit(): return err
     
@@ -355,7 +367,7 @@ api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://buy.stripe.com/28EcN7fsM002fUN1Uc8k835"}
 
     if err := _check_rate_limit(): return err
     
@@ -446,7 +458,7 @@ def list_all_tools(api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://buy.stripe.com/28EcN7fsM002fUN1Uc8k835"}
 
     tools = {
         "META (unique to engine)": [
@@ -562,7 +574,7 @@ def compliance_score_engine(system_description: str, frameworks: str = "eu_ai_ac
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://buy.stripe.com/28EcN7fsM002fUN1Uc8k835"}
 
     if err := _check_rate_limit(): return err
     desc = system_description.lower()
@@ -648,10 +660,16 @@ def get_full_audit_trail(limit: int = 50, api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://buy.stripe.com/28EcN7fsM002fUN1Uc8k835"}
 
     return {'total': len(_full_audit), 'entries': _full_audit[-limit:], 'note': 'Enterprise: full trail with cryptographic signing'}
     return {'total': len(_full_audit), 'entries': _full_audit[-limit:], 'note': 'Enterprise: full trail with cryptographic signing'}
+
+
+
+def main():
+    """Entry point for the mcp command."""
+    mcp.run()
 
 if __name__ == "__main__":
-    mcp.run()
+    main()
