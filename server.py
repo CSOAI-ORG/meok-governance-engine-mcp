@@ -70,17 +70,50 @@ mcp = FastMCP(
     instructions="""MEOK Governance Engine — 59 compliance tools in one MCP server.
     
     FRAMEWORKS: EU AI Act, NIST AI RMF, ISO 42001, ISO 27001, GDPR, SOC 2, Canada AIDA, 
-    CSOAI (12 crosswalks), LLM Comparison, AI Self-Audit.
-    
-    KILLER FEATURES:
-    - crosswalk_bridge: Map between ANY two frameworks through CSOAI
-    - self_audit: AI agents check their OWN compliance in real-time
-    - compare_providers: Which LLM is most compliant for your use case?
-    - full_governance_report: Complete multi-framework assessment in one call
-    
-    By MEOK AI Labs | meok.ai | Enterprise: £999/mo"""
+    CSOAI (12 crosswalks)"""
 )
 
+# ── Structured Output Helpers ─────────────────────────────────
+
+def structured_output(data, summary: str = ""):
+    """Return MCP-compatible structured output with both LLM text and protocol-level data.
+    
+    Args:
+        data: The result data (dict, list, or Pydantic model)
+        summary: Brief human-readable summary for the LLM (auto-generated if empty)
+    """
+    if hasattr(data, 'model_dump'):
+        data_dict = data.model_dump()
+    else:
+        data_dict = data
+    
+    if not summary:
+        # Auto-generate summary from key fields
+        parts = []
+        for k, v in list(data_dict.items())[:3]:
+            if isinstance(v, (str, int, float)):
+                parts.append(f"{k}: {v}")
+        summary = " | ".join(parts) if parts else "Result"
+    
+    return {
+        "content": [{"type": "text", "text": summary + "\n\n" + str(data_dict)}],
+        "structuredContent": data_dict,
+        **data_dict  # Legacy compatibility
+    }
+
+
+def error_output(message: str, code: str = "INTERNAL_ERROR", upgrade_url: str = ""):
+    """Return structured error output."""
+    result = {
+        "content": [{"type": "text", "text": f"Error: {message}"}],
+        "structuredContent": {"error": message, "code": code},
+        "error": message,
+        "code": code
+    }
+    if upgrade_url:
+        result["structuredContent"]["upgrade_url"] = upgrade_url
+        result["upgrade_url"] = upgrade_url
+    return result
 
 
 # ══════════════════════════════════════════════════════════════════════
