@@ -1,0 +1,9 @@
+# meok-governance-engine-mcp - Auto-trigger Rules
+
+When the user asks about meok governance engine, use meok-governance-engine-mcp tools: full_governance_report, which_frameworks_apply, compliance_cost_estimator, list_all_tools, compliance_score_engine
+
+**MCP server for meok governance engine mcp operations**
+
+Install: `pip install meok-governance-engine-mcp`
+
+By MEOK AI Labs — MIT licensed.

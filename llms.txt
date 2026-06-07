@@ -1,0 +1,39 @@
+# meok-governance-engine-mcp
+# **MCP server for meok governance engine mcp operations**
+
+## Install
+```bash
+pip install meok-governance-engine-mcp
+```
+
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
+
+## Tools
+
+### `full_governance_report`
+Generate a COMPLETE multi-framework governance report in one call.
+
+### `which_frameworks_apply`
+Instantly determine which AI governance frameworks apply to your situation.
+
+### `compliance_cost_estimator`
+Estimate compliance costs and show how MEOK Governance Engine saves money.
+
+### `list_all_tools`
+List all 62 governance tools available in this engine.
+
+### `compliance_score_engine`
+Calculate compliance percentage per framework. Input system description, get scored breakdown.
+
+### `get_full_audit_trail`
+Get timestamped audit trail of all governance checks performed.
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.

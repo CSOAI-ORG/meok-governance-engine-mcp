@@ -1,0 +1,31 @@
+{
+  "name": "meok-governance-engine-mcp",
+  "title": "Meok Governance Engine Mcp",
+  "description": "AI-powered meok governance engine MCP server for agents. Supports full governance report, which frameworks apply, compliance cost estimator. By MEOK AI Labs.",
+  "version": "1.0.16",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "full_governance_report"
+    },
+    {
+      "name": "which_frameworks_apply"
+    },
+    {
+      "name": "compliance_cost_estimator"
+    },
+    {
+      "name": "list_all_tools"
+    },
+    {
+      "name": "compliance_score_engine"
+    },
+    {
+      "name": "get_full_audit_trail"
+    }
+  ]
+}
