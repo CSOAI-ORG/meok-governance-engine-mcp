@@ -1,0 +1,77 @@
+{
+  "name": "meok-governance-engine-mcp",
+  "description": "Governance Engine MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/meok-governance-engine-mcp.html",
+  "version": "1.0.16",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "full_governance_report",
+      "name": "Full Governance Report",
+      "description": "full_governance_report via meok-governance-engine-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "which_frameworks_apply",
+      "name": "Which Frameworks Apply",
+      "description": "which_frameworks_apply via meok-governance-engine-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "compliance_cost_estimator",
+      "name": "Compliance Cost Estimator",
+      "description": "compliance_cost_estimator via meok-governance-engine-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "list_all_tools",
+      "name": "List All Tools",
+      "description": "list_all_tools via meok-governance-engine-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "compliance_score_engine",
+      "name": "Compliance Score Engine",
+      "description": "compliance_score_engine via meok-governance-engine-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "get_full_audit_trail",
+      "name": "Get Full Audit Trail",
+      "description": "get_full_audit_trail via meok-governance-engine-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}

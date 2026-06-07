@@ -1,0 +1,24 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "meok-governance-engine-mcp",
+    "description": "Governance Engine MCP Server by MEOK AI Labs",
+    "version": "1.0.16",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "meok-governance-engine-mcp"
+      }
+    ],
+    "capabilities": [
+      "full_governance_report",
+      "which_frameworks_apply",
+      "compliance_cost_estimator",
+      "list_all_tools",
+      "compliance_score_engine",
+      "get_full_audit_trail"
+    ]
+  }
+}
