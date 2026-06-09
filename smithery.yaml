@@ -1,65 +1,28 @@
-name: meok-governance-engine-mcp
-description: AI-powered meok governance engine MCP server for agents. Supports full
-  governance report, which frameworks apply, compliance cost estimator. By MEOK AI
-  Labs.
-version: 1.0.0
-tools:
-- name: full_governance_report
-  description: Generate a COMPLETE multi-framework governance report in one call.
-  parameters:
-  - name: system_name
-    type: string
-    required: true
-  - name: system_description
-    type: string
-    required: true
-  - name: jurisdictions
-    type: string
-    required: false
-  - name: use_case
-    type: string
-    required: false
-- name: which_frameworks_apply
-  description: Instantly determine which AI governance frameworks apply to your situation.
-  parameters:
-  - name: country
-    type: string
-    required: true
-  - name: industry
-    type: string
-    required: false
-  - name: ai_use_case
-    type: string
-    required: false
-- name: compliance_cost_estimator
-  description: Estimate compliance costs and show how MEOK Governance Engine saves
-    money.
-  parameters:
-  - name: systems_count
-    type: integer
-    required: false
-  - name: risk_level
-    type: string
-    required: false
-  - name: current_certifications
-    type: string
-    required: false
-- name: list_all_tools
-  description: List all 62 governance tools available in this engine.
-  parameters: []
-- name: compliance_score_engine
-  description: Calculate compliance percentage per framework. Input system description,
-    get scored breakdown.
-  parameters:
-  - name: system_description
-    type: string
-    required: true
-  - name: frameworks
-    type: string
-    required: false
-- name: get_full_audit_trail
-  description: Get timestamped audit trail of all governance checks performed.
-  parameters:
-  - name: limit
-    type: integer
-    required: false
+# smithery.yaml — Smithery (https://smithery.ai) submission payload
+# Repo: CSOAI-ORG/meok-governance-engine-mcp
+# Generated: 2026-06-09
+# Transport: streamable-HTTP (OCI container at ghcr.io/csoai-org/meok_governance_engine)
+# See: DISTRIBUTION_GAPS_2026-06-08.md for the channel strategy
+runtime: container
+startCommand:
+  type: http
+  transport: streamable-http
+  port: 8081
+  path: /mcp
+  health: /healthz
+  configSchema:
+    type: object
+    properties:
+      apiKey:
+        type: string
+        description: "MEOK API key (optional; required for x402 paywalled tools)"
+        default: ""
+      x402PayTo:
+        type: string
+        description: "USDC address for x402 micropayments"
+        default: ""
+    additionalProperties: false
+build:
+  dockerfile: Dockerfile
+  dockerBuildArgs:
+    PKG: meok_governance_engine
