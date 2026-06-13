@@ -4,9 +4,8 @@
   "version": "1.0.17",
   "description": "Governance Engine MCP Server by MEOK AI Labs",
   "repository": {
-    "type": "git",
     "url": "https://github.com/CSOAI-ORG/meok-governance-engine-mcp",
-    "source": "https://github.com/CSOAI-ORG/meok-governance-engine-mcp"
+    "source": "github"
   },
   "packages": [
     {
