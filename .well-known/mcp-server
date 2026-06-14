@@ -1,0 +1,5 @@
+{
+  "name": "meok-governance-engine-mcp",
+  "description": "Multi-framework governance engine with weighted voting and attestation.",
+  "version": "1.5.0"
+}
