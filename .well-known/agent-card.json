@@ -1,0 +1,134 @@
+{
+  "name": "Meok Governance Engine Mcp",
+  "version": "1.0.16",
+  "url": "https://mcp.meok.ai/meok-governance-engine-mcp/a2a",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "protocolVersion": "0.3.0",
+  "description": "AI-powered meok governance engine MCP server for agents. Supports full governance report, which frameworks apply, compliance cost estimator. By MEOK AI Labs.",
+  "provider": {
+    "organization": "MEOK AI LABS",
+    "url": "https://meok.ai"
+  },
+  "defaultInputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "full_governance_report",
+      "name": "Full Governance Report",
+      "description": "Full Governance Report — a tool of the meok-governance-engine-mcp MCP.",
+      "tags": [
+        "compliance",
+        "governance"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "which_frameworks_apply",
+      "name": "Which Frameworks Apply",
+      "description": "Which Frameworks Apply — a tool of the meok-governance-engine-mcp MCP.",
+      "tags": [
+        "compliance",
+        "governance"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "compliance_cost_estimator",
+      "name": "Compliance Cost Estimator",
+      "description": "Compliance Cost Estimator — a tool of the meok-governance-engine-mcp MCP.",
+      "tags": [
+        "compliance",
+        "governance"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "list_all_tools",
+      "name": "List All Tools",
+      "description": "List All Tools — a tool of the meok-governance-engine-mcp MCP.",
+      "tags": [
+        "compliance",
+        "governance"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "compliance_score_engine",
+      "name": "Compliance Score Engine",
+      "description": "Compliance Score Engine — a tool of the meok-governance-engine-mcp MCP.",
+      "tags": [
+        "compliance",
+        "governance"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "get_full_audit_trail",
+      "name": "Get Full Audit Trail",
+      "description": "Get Full Audit Trail — a tool of the meok-governance-engine-mcp MCP.",
+      "tags": [
+        "compliance",
+        "governance"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    }
+  ],
+  "documentationUrl": "https://meok.ai",
+  "x-meok": {
+    "mcp_name": "meok-governance-engine-mcp",
+    "verifier": "https://proofof.ai/verify",
+    "governed_by": "CSOAI 52-article charter"
+  }
+}

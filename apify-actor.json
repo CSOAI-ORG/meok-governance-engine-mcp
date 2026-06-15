@@ -1,0 +1,17 @@
+{
+  "name": "knowing_yucca/meok-governance-engine-mcp",
+  "title": "MEOK Meok Governance Engine Mcp",
+  "description": "Compliance MCP server: meok-governance-engine-mcp",
+  "readme": "# MEOK Meok Governance Engine Mcp\n\nCompliance MCP from MEOK AI.",
+  "categories": [
+    "AI",
+    "Compliance",
+    "Governance"
+  ],
+  "defaultRunInput": {
+    "tool": "quick_scan",
+    "arguments": {
+      "system": "example"
+    }
+  }
+}
