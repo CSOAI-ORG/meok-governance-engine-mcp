@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "meok-governance-engine-mcp"
-version = "1.0.17"
+version = "1.0.18"
 description = "AI-powered meok governance engine MCP server for agents. Supports full governance report, which frameworks apply, compliance cost estimator. By MEOK AI Labs."
 readme = "README.md"
 license = {file = "LICENSE"}
