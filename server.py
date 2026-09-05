@@ -4,7 +4,8 @@ import urllib.error as _meter_urlerr
 """
 MEOK GOVERNANCE ENGINE — The World's Most Comprehensive AI Compliance MCP
 ==========================================================================
-59 tools. 10 frameworks. 12 crosswalks. 11,000+ lines of regulatory intelligence.
+6 meta-tools over 10 frameworks and 12 crosswalks. The per-framework tools live in the
+standalone component MCPs and are NOT imported here — see the note above list_all_tools.
 
 This is the ONLY MCP server that:
 - Audits against EU AI Act, NIST RMF, ISO 42001, ISO 27001, GDPR, SOC 2, Canada AIDA
@@ -69,11 +70,22 @@ def _check_auth(api_key=""):
 
 mcp = FastMCP(
     "meok-governance-engine",
-    instructions="""MEOK Governance Engine — 59 compliance tools in one MCP server.
+    instructions="""MEOK Governance Engine — 6 meta-tools spanning 10 compliance frameworks.
     
     FRAMEWORKS: EU AI Act, NIST AI RMF, ISO 42001, ISO 27001, GDPR, SOC 2, Canada AIDA, 
     CSOAI (12 crosswalks)"""
 )
+
+# ── Tool registry truth ───────────────────────────────────────
+# This server told every connecting client it had "59 compliance tools" and served 6. The
+# 59 were never imported — the comment above list_all_tools says so in the code's own words
+# ("In production, these would import from the individual server modules"); they live in the
+# standalone component MCPs. Any count reported anywhere is now DERIVED from the registry, so
+# it cannot drift from what tools/list actually returns.
+def _registered_tool_names():
+    reg = getattr(getattr(mcp, "_tool_manager", None), "_tools", None) or {}
+    return sorted(reg.keys())
+
 
 # ── Structured Output Helpers ─────────────────────────────────
 
@@ -283,7 +295,7 @@ api_key: str = "") -> str:
         "assessment": "COMPLIANT" if overall_score >= 70 else "PARTIAL" if overall_score >= 40 else "NON-COMPLIANT",
         "crosswalk_note": f"Use crosswalk_bridge to map between any of your {len(frameworks)} applicable frameworks.",
         "recommendation": f"{'Address gaps in: ' + ', '.join(k for k,v in checks.items() if not v) if overall_score < 100 else 'All checks pass. Consider formal conformity assessment.'}",
-        "enterprise": "Full assessment with 59 tools: meok.ai/enterprise",
+        "enterprise": "Full assessment across the component MCPs: meok.ai/enterprise",
     }
 
 
@@ -476,7 +488,7 @@ api_key: str = "") -> str:
         "cost_comparison": {
             "diy": {"total_eur": round(diy_total), "per_system": round(cost["annual_per_system"]), "note": "Internal team, 6-12 months"},
             "consulting": {"total_eur": round(consulting_total), "rate": "250-500/hour", "note": "Big Four or boutique, 3-6 months"},
-            "meok_engine": {"total_gbp": round(meok_total), "monthly": 999, "note": "Automated, immediate, 59 tools"},
+            "meok_engine": {"total_gbp": round(meok_total), "monthly": 999, "note": "Automated, immediate"},
         },
         "savings_vs_diy": f"EUR {round(diy_total - meok_total):,}",
         "savings_vs_consulting": f"EUR {round(consulting_total - meok_total):,}",
@@ -487,7 +499,7 @@ api_key: str = "") -> str:
 
 # ══════════════════════════════════════════════════════════════════════
 # INDIVIDUAL FRAMEWORK TOOLS
-# Import all 59 tools from the 10 component servers
+# The 59 per-framework tools are NOT imported here (see the note below).
 # Each framework's tools are available with their original names
 # ══════════════════════════════════════════════════════════════════════
 
@@ -497,7 +509,7 @@ api_key: str = "") -> str:
 
 @mcp.tool()
 def list_all_tools(api_key: str = "") -> str:
-    """List all 62 governance tools available in this engine.
+    """List the tools this server actually registers.
 
     Behavior:
         This tool is read-only and stateless — it produces analysis output
@@ -591,7 +603,7 @@ def list_all_tools(api_key: str = "") -> str:
     return {
         "engine": "MEOK Governance Engine",
         "version": "1.0.0",
-        "total_tools": "62 (59 framework + 3 meta)",
+        "total_tools_in_this_server": len(_registered_tool_names()),
         "frameworks": 10,
         "crosswalks": 12,
         "tools": tools,

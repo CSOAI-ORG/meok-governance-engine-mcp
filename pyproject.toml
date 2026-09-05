@@ -16,7 +16,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
-dependencies = ["mcp>=1.0.0"]
+dependencies = ["mcp>=1.0.0,<2"]  # 2.x renamed FastMCP -> MCPServer; this is v1 code
 
 [project.urls]
 Homepage = "https://csoai.org"
